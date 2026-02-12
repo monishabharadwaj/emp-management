@@ -1,0 +1,16 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "Monisha",
+      "email": "monisha@gmail.com",
+      "department": "CSE"
+    },
+    {
+      "id": "70d4",
+      "name": "Monisha",
+      "email": "monishabharadwaj27@gmail.com",
+      "department": "CSE"
+    }
+  ]
+}

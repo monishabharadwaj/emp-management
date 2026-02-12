@@ -1,31 +1,29 @@
-import Header from './header';
-import Footer from './footer';
-import Login from './login';
-import Registration from './registration';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import React, { useState } from "react";
+import EmployeeList from "./components/EmployeeList";
+import EmployeeForm from "./components/EmployeeForm";
 
 function App() {
+  const [selectedEmployee, setSelectedEmployee] = useState(null);
+
+  const handleEdit = (employee) => {
+    setSelectedEmployee(employee);
+  };
+
+  const handleSave = () => {
+    setSelectedEmployee(null);
+    window.location.reload();
+  };
+
   return (
-    <BrowserRouter>
-
-      <Header />
-
-      <nav>
-        <Link to="/login">Login</Link> |{" "}
-        <Link to="/registration">Registration</Link>
-      </nav>
-
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/registration" element={<Registration />} />
-      </Routes>
-
-      <Footer />
-
-    </BrowserRouter>
+    <div>
+      <h1>Employee Management System</h1>
+      <EmployeeForm
+        selectedEmployee={selectedEmployee}
+        onSave={handleSave}
+      />
+      <EmployeeList onEdit={handleEdit} />
+    </div>
   );
 }
 
 export default App;
-
